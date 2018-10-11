@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <title>3 Col Portfolio - Start Bootstrap Template</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <div id="app">
+    <div class="navbar bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Livecode 1</a>
+        <div class="header-right">
+          <input type="text" placeholder="email" v-model="email">
+          <input type="password" placeholder="password" v-model="password">
+          <button v-on:click="signin">Login</button>
+        </div>
+      </div>
+    </div>
+    <br />
+    <!-- Page Content -->
+    <div class="container" >
+      <div class="row" >
+        <div class="col-lg-3" v-if=!token>
+          <h4>Add new Event</h4>
+          <div class="list-group">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Event" v-model="name">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Location" v-model="location">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Address" v-model="address">
+              </div>
+              <button type="submit" class="btn btn-default" v-on:click="addEvent">Submit</button>
+            </form>
+          </div>
+          <hr>
+          <h4>Search</h4>
+          <div class="list-group">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search..." v-model="keyword">
+              </div>
+              <button type="submit" class="btn btn-default" v-on:click="search">Submit</button>
+            </form>
+          </div>
+          <hr>
+          <h4>Maps</h4>
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+          <div class="row">
+            <div class="col-lg-4 col-sm-6 portfolio-item" v-for="value in events">
+              <div class="card h-70">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#">{{value.name}}</a>
+                  </h4>
+                  <div>{{value.location}}</div>
+                  <div>{{value.address}}</div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+</div>
+      <!-- /.container -->
+
+      <!-- Footer -->
+      <footer class="py-5 bg-dark">
+        <div class="container">
+          <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        </div>
+        <!-- /.container -->
+      </footer>
+      <script src="./script.js"></script>
+</body>
+
+</html>
